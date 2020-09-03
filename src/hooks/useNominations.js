@@ -4,9 +4,9 @@ import reducer, { SET_NOMINATION } from "../reducers/nominations";
 export default function useNominations() {
   const [nominations, dispatch] = useReducer(reducer, []);
 
-  const nominateMovie = (movie) => {
+  const nominate = (movie) => {
     dispatch({ type: SET_NOMINATION, movie });
   };
 
-  return { nominations, nominateMovie };
+  return { nominations, nominate };
 }

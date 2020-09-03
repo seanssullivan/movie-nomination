@@ -3,19 +3,22 @@ import Search from "./Search";
 import MovieList from "./MovieList";
 import NominationList from "./NominationList";
 import useMovieSearch from "../hooks/useMovieSearch";
-import useNominations from "../hooks/useNominations";
+import { NominationsProvider } from "../contexts/nominations";
 
 export default function App() {
-  const { movies, searchByTitle } = useMovieSearch([]);
-  const { nominations, nominateMovie } = useNominations([]);
+  const { movies, searchByTitle } = useMovieSearch();
+
+  console.log("Rendered App");
 
   return (
     <div className="App">
       <header className="App-header"></header>
       <main>
         <Search searchByTitle={searchByTitle} />
-        <MovieList movies={movies} nominate={nominateMovie} />
-        <NominationList movies={nominations} />
+        <NominationsProvider>
+          <MovieList movies={movies} />
+          <NominationList />
+        </NominationsProvider>
       </main>
     </div>
   );

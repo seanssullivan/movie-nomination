@@ -9,6 +9,8 @@ export default function Search({ searchByTitle }) {
     searchByTitle(text);
   };
 
+  console.log("Rendered Search Bar");
+
   return (
     <input
       type="text"

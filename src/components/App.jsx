@@ -1,12 +1,13 @@
 import React from "react";
+import Search from "./Search";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <header className="App-header"></header>
-      <main></main>
+      <main>
+        <Search />
+      </main>
     </div>
   );
 }
-
-export default App;

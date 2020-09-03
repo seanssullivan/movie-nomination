@@ -1,4 +1,6 @@
 import React, { useContext } from "react";
+import Grid from "@material-ui/core/Grid";
+// import Paper from "@material-ui/core/Paper";
 import MovieCard from "../MovieCard";
 import { NominationsContext } from "../../contexts/nominations";
 import "./ResultsList.css";
@@ -12,7 +14,7 @@ export default function ResultsList({ results }) {
   console.log("Rendered Results List");
 
   return (
-    <ul>
+    <Grid container direction="column" justify="flex-start" alignItems="center">
       {results.map((movie) => {
         return (
           <MovieCard
@@ -22,6 +24,6 @@ export default function ResultsList({ results }) {
           />
         );
       })}
-    </ul>
+    </Grid>
   );
 }

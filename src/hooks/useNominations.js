@@ -1,7 +1,7 @@
 import { useReducer } from "react";
-import reducer, { SET_NOMINATION } from "reducers/nominations";
+import reducer, { SET_NOMINATION } from "../reducers/nominations";
 
-export function useNominations() {
+export default function useNominations() {
   const [nominations, dispatch] = useReducer(reducer, []);
 
   const nominateMovie = (movie) => {

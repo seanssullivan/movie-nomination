@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function Movies() {
+export default function NominationList() {
   return <ul></ul>;
 }

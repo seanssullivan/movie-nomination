@@ -1,18 +1,12 @@
 import React, { useState } from "react";
-import { debounce } from "lodash";
-import axios from "axios";
 
-export default function Search() {
+export default function Search({ searchByTitle }) {
   const [display, setDisplay] = useState("");
-
-  const queryAPI = debounce((query) => {
-    return "query results"; // axios.get()
-  });
 
   const handleChange = (event) => {
     const text = event.target.value;
     setDisplay(text);
-    queryAPI(text);
+    searchByTitle(text);
   };
 
   return (

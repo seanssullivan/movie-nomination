@@ -1,9 +1,9 @@
-export const SET_MOVIES = "SET_MOVIES";
+export const SET_RESULTS = "SET_RESULTS";
 
 export default function reducer(state, action) {
-  if (action.type === SET_MOVIES) {
-    const { movies } = action;
-    return [...movies];
+  if (action.type === SET_RESULTS) {
+    const { results } = action;
+    return [...results];
   }
 
   throw new Error(

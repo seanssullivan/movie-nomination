@@ -1,19 +1,19 @@
 import React, { useContext } from "react";
-import MovieCard from "./MovieCard";
-import { NominationsContext } from "../contexts/nominations";
-import "./MovieList.css";
+import MovieCard from "../MovieCard";
+import { NominationsContext } from "../../contexts/nominations";
+import "./ResultsList.css";
 
-export default function MovieList({ movies }) {
+export default function ResultsList({ results }) {
   const { nominations } = useContext(NominationsContext);
 
   const checkNomination = (id) =>
     !!nominations.find((nomination) => nomination.imdbID === id);
 
-  console.log("Rendered Movie List");
+  console.log("Rendered Results List");
 
   return (
     <ul>
-      {movies.map((movie) => {
+      {results.map((movie) => {
         return (
           <MovieCard
             key={movie.imdbID}

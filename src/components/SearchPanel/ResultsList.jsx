@@ -1,12 +1,7 @@
 import React, { useContext } from "react";
 import Grid from "@material-ui/core/Grid";
-import { makeStyles } from "@material-ui/core/styles";
 import MovieCard from "../MovieCard";
 import { NominationsContext } from "../../contexts/nominations";
-
-const useStyles = makeStyles((theme) => ({
-  root: {},
-}));
 
 export default function ResultsList({ results }) {
   const { nominations } = useContext(NominationsContext);
@@ -14,17 +9,22 @@ export default function ResultsList({ results }) {
   const checkNomination = (id) =>
     !!nominations.find((nomination) => nomination.imdbID === id);
 
+  const isDisabled = (id) =>
+    nominations.length < 5 ? checkNomination(id) : true;
+
   console.log("Rendered Results List");
 
   return (
-    <Grid container direction="column" justify="flex-start" alignItems="center">
+    <Grid container spacing={3}>
       {results.map((movie) => {
         return (
-          <MovieCard
-            key={movie.imdbID}
-            movie={movie}
-            isNominated={checkNomination(movie.imdbID)}
-          />
+          <Grid item xs={3} sm={4}>
+            <MovieCard
+              key={movie.imdbID}
+              movie={movie}
+              isDisabled={isDisabled(movie.imdbID)}
+            />
+          </Grid>
         );
       })}
     </Grid>

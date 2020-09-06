@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     padding: 50,
     display: "flex",
@@ -23,9 +23,7 @@ export default function Search({ searchByTitle }) {
   const handleChange = (event) => {
     const text = event.target.value;
     setDisplay(text);
-    if (text) {
-      searchByTitle(text, setError);
-    }
+    searchByTitle(text, setError);
   };
 
   console.log("Rendered Search Bar");

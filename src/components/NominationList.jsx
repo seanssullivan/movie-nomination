@@ -33,12 +33,8 @@ export default function NominationList() {
   const { nominations } = useContext(NominationsContext);
   const classes = useStyles();
 
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
-
   return (
     <Drawer
-      container={container}
       variant="permanent"
       anchor="right"
       classes={{

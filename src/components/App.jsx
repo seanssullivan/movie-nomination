@@ -13,7 +13,7 @@ export default function App() {
     <Container component="main">
       <Header />
       <NominationsProvider>
-        <Grid direction="row">
+        <Grid>
           <SearchPanel />
           <NominationList />
         </Grid>

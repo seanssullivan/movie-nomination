@@ -1,9 +1,12 @@
 import React, { useContext } from "react";
 import Grid from "@material-ui/core/Grid";
-// import Paper from "@material-ui/core/Paper";
+import { makeStyles } from "@material-ui/core/styles";
 import MovieCard from "../MovieCard";
 import { NominationsContext } from "../../contexts/nominations";
-import "./ResultsList.css";
+
+const useStyles = makeStyles((theme) => ({
+  root: {},
+}));
 
 export default function ResultsList({ results }) {
   const { nominations } = useContext(NominationsContext);

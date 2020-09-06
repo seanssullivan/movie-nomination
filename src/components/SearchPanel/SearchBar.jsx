@@ -1,10 +1,24 @@
 import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
-import "./SearchBar.css";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    padding: 50,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  input: {
+    width: "50%",
+  },
+}));
 
 export default function Search({ searchByTitle }) {
   const [display, setDisplay] = useState("");
   const [error, setError] = useState("");
+  const classes = useStyles();
 
   const handleChange = (event) => {
     const text = event.target.value;
@@ -17,10 +31,11 @@ export default function Search({ searchByTitle }) {
   console.log("Rendered Search Bar");
 
   return (
-    <form className={"search-box"} noValidate autoComplete="off">
+    <form className={classes.root} noValidate autoComplete="off">
       <TextField
         error={!!error}
-        label="Movie Title"
+        className={classes.input}
+        label="Search Movies by Title"
         value={display}
         onChange={handleChange}
         variant="outlined"

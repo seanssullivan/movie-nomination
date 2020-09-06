@@ -1,22 +1,23 @@
 import React from "react";
-import Drawer from "@material-ui/core/Drawer";
+import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
+import Header from "./Header";
 import SearchPanel from "./SearchPanel";
 import NominationList from "./NominationList";
 import { NominationsProvider } from "../contexts/nominations";
-// import Container from "@material-ui/core/Container";
 
 export default function App() {
   console.log("Rendered App");
 
   return (
-    <NominationsProvider>
-      <Grid direction="row" justify="center" alignItems="flex-start">
-        <SearchPanel />
-        <Drawer variant="permanent" anchor="right">
+    <Container component="main">
+      <Header />
+      <NominationsProvider>
+        <Grid direction="row">
+          <SearchPanel />
           <NominationList />
-        </Drawer>
-      </Grid>
-    </NominationsProvider>
+        </Grid>
+      </NominationsProvider>
+    </Container>
   );
 }

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TextField from "@material-ui/core/TextField";
+import "./SearchBar.css";
 
 export default function Search({ searchByTitle }) {
   const [display, setDisplay] = useState("");
@@ -16,7 +17,7 @@ export default function Search({ searchByTitle }) {
   console.log("Rendered Search Bar");
 
   return (
-    <form noValidate autoComplete="off">
+    <form className={"search-box"} noValidate autoComplete="off">
       <TextField
         error={!!error}
         label="Movie Title"

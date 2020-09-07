@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Grid from "@material-ui/core/Grid";
-import MovieCard from "../MovieCard";
+import MovieCard from "./MovieCard";
 import { NominationsContext } from "../../contexts/nominations";
 
 export default function ResultsList({ results }) {

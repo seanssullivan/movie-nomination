@@ -2,6 +2,7 @@ import { useReducer } from "react";
 import reducer, {
   SET_NOMINATION,
   REMOVE_NOMINATION,
+  RESET_NOMINATIONs,
 } from "../reducers/nominations";
 
 export default function useNominations() {
@@ -15,5 +16,9 @@ export default function useNominations() {
     dispatch({ type: REMOVE_NOMINATION, movie });
   };
 
-  return { nominations, nominate, remove };
+  const reset = () => {
+    dispatch({ type: RESET_NOMINATIONs });
+  };
+
+  return { nominations, nominate, remove, reset };
 }

@@ -8,10 +8,12 @@ export const NominationsContext = createContext({
 });
 
 export const NominationsProvider = ({ children }) => {
-  const { nominations, nominate, remove } = useNominations();
+  const { nominations, nominate, remove, reset } = useNominations();
 
   return (
-    <NominationsContext.Provider value={{ nominations, nominate, remove }}>
+    <NominationsContext.Provider
+      value={{ nominations, nominate, remove, reset }}
+    >
       {children}
     </NominationsContext.Provider>
   );

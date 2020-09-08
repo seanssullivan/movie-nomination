@@ -1,13 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import Container from "@material-ui/core/Container";
 import Divider from "@material-ui/core/Divider";
 import Drawer from "@material-ui/core/Drawer";
 import LinearProgress from "@material-ui/core/LinearProgress";
-import List from "@material-ui/core/List";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import NominationItem from "./NominationItem";
-import { NominationsContext } from "../contexts/nominations";
 
 const useStyles = makeStyles({
   paper: {
@@ -30,14 +27,8 @@ const useStyles = makeStyles({
   },
 });
 
-export default function NominationList() {
-  const { nominations } = useContext(NominationsContext);
-  const [progress, setProgress] = useState(0);
+export default function Nominations({ progress, children }) {
   const classes = useStyles();
-
-  useEffect(() => {
-    setProgress(nominations.length * 20);
-  }, [nominations]);
 
   return (
     <Drawer
@@ -57,11 +48,7 @@ export default function NominationList() {
       </Container>
       <Divider />
       <LinearProgress variant="determinate" value={progress} color="primary" />
-      <List>
-        {nominations.map((nomination, idx) => {
-          return <NominationItem key={idx} data={nomination}></NominationItem>;
-        })}
-      </List>
+      {children}
     </Drawer>
   );
 }

@@ -3,7 +3,7 @@ import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Header from "./Header";
 import SearchPanel from "./SearchPanel";
-import NominationList from "./NominationList";
+import Nominations from "./Nominations";
 import { NominationsProvider } from "../contexts/nominations";
 
 export default function App() {
@@ -15,7 +15,7 @@ export default function App() {
       <NominationsProvider>
         <Grid>
           <SearchPanel />
-          <NominationList />
+          <Nominations />
         </Grid>
       </NominationsProvider>
     </Container>
